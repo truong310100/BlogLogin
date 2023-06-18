@@ -56,16 +56,22 @@ router.get('/getbyidauthor/:id', (req, res) => {
 router.delete('/supprimer/:id', (req, res) => {
     let id = req.params.id
 
-    Article.find({ idAuthor: id})
+    Article.findByIdAndDelete({ idAuthor: id})
         .then((articles)=>{res.status(200).send(articles)})
         .catch((err)=>{res.status(400).send(err)})
 })
-router.put('/update/:id', (req, res) => {
+router.put('/update/:id', upload.any('image'), (req, res) => {
     let id = req.params.id
+    let data = req.body
+    data.tags = data.tags.split(',');
 
-    Article.find({ idAuthor: id})
-        .then((articles)=>{res.status(200).send(articles)})
-        .catch((err)=>{res.status(400).send(err)})
+    if(filename.length > 0){
+        data.image = filename;
+    }
+
+    Article.findByIdAndUpdate({ _id: id}, data)
+        .then((article) => { filename = ''; res.status(200).send(article) })
+        .catch(err => { res.status(400).send(err) })
 })
 
 module.exports = router;
