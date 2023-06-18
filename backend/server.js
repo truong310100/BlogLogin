@@ -9,4 +9,3 @@ app.use('/getimage', express.static('./uploads'))
 
 app.listen(3000, ()=>{console.log("Started")})
 
-// Nguyễn Lam Trường
