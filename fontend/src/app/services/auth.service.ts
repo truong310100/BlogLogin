@@ -13,4 +13,8 @@ export class AuthService {
   register( author: any ) {
     return this.http.post(this.url + 'register' , author);
   }
+
+  login( author: any ) {
+    return this.http.post(this.url + 'login' , author);
+  }
 }
