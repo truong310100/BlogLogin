@@ -17,4 +17,21 @@ export class AuthService {
   login( author: any ) {
     return this.http.post(this.url + 'login' , author);
   }
+
+  isLoggedIn(){
+    let token = localStorage.getItem('token');
+    if(token){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  getAuthorDataFromToken(){
+    let token = localStorage.getItem('token');
+    if(token){
+      let data = JSON.parse(window.atob(token.split('.')[1]))
+      return data;
+    }
+  }
 }

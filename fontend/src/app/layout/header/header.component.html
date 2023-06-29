@@ -31,8 +31,8 @@
               <li class="nav-item @@archive">
                 <a class="nav-link" [routerLink]="['/privacy']">Privacy</a>
               </li>
-              <li class="nav-item @@contact">
-                <a class="nav-link" [routerLink]="['/author', 'qsdqsd']">My Account</a>
+              <li class="nav-item @@contact" *ngIf="_auth.isLoggedIn() == true">
+                <a class="nav-link" [routerLink]="['/author', _auth.getAuthorDataFromToken()._id]">My Account</a>
               </li>
         
             </ul>

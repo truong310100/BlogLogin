@@ -34,6 +34,11 @@ export class RegisterComponent implements OnInit {
     fd.append('about', this.author.about)
     fd.append('image', this.image)
 
-    this._auth.register(fd).subscribe(res=>{this.router.navigate(['/login']);});
+    this._auth.register(fd)
+      .subscribe(
+        res=>{
+          this.router.navigate(['/login']);
+        }
+      );
   }
 }

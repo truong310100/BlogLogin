@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       res=>{
         this.token = res;
         //{myToeken:'qweqweqw'}
-        localStorage.setItem('token',this.token.myToken)
+        localStorage.setItem('token', this.token.myToken)
         this.router.navigate(['/home']);
       },
       err=>{
