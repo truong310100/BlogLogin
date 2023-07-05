@@ -11,27 +11,28 @@ export class AuthService {
   private url = 'http://127.0.0.1:3000/author/';
 
   register( author: any ) {
-    return this.http.post(this.url + 'register' , author);
+    return  this.http.post(this.url + 'register' , author);
   }
 
   login( author: any ) {
     return this.http.post(this.url + 'login' , author);
   }
 
-  isLoggedIn(){
+  isLoggedIn() {
     let token = localStorage.getItem('token');
     if(token){
       return true;
     }else{
       return false;
     }
-  }
-
-  getAuthorDataFromToken(){
+  };
+  
+  getAuthorDataFromToken() {
     let token = localStorage.getItem('token');
     if(token){
-      let data = JSON.parse(window.atob(token.split('.')[1]))
+      let data = JSON.parse(window.atob(token.split('.')[1]));
       return data;
     }
   }
+  
 }

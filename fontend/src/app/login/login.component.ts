@@ -9,21 +9,22 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  author = {
-    email:'',
-    password:'', 
-  }
+author = {
+  email:'',
+  password:''
+}
 
   constructor(private _auth: AuthService , private router: Router){}
   ngOnInit(): void {}
 
-  token: any
+  token : any
   login(){
     this._auth.login(this.author)
     .subscribe(
       res=>{
         this.token = res;
-        //{myToeken:'qweqweqw'}
+        // alert(res);
+        //{myToken:'qweqweqw'}
         localStorage.setItem('token', this.token.myToken)
         this.router.navigate(['/home']);
       },
@@ -31,5 +32,6 @@ export class LoginComponent implements OnInit {
         console.log(err);
       }
     );
+    
   }
 }

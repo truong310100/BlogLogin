@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
             else{
                 let payload = { _id: author._id, email: author.email, fullname: author.name + ' ' + author.lastname }
                 let token = jwt.sign(payload, '123456789');
-                res.send({ mytoken: token })}})
+                res.send({ myToken: token })}})
         .catch(err => {res.send(err)})
     })
 
