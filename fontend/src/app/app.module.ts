@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +19,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { CoverComponent } from './home/cover/cover.component';
 import { BlogListComponent } from './home/blog-list/blog-list.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AngularEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

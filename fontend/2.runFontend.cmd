@@ -1,0 +1,1 @@
+cd fontend & ng serve --open
