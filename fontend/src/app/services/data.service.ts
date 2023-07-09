@@ -13,4 +13,8 @@ export class DataService {
   create(article: any){
     return this.http.post(this.url + 'ajout' , article)
   }
+
+  getAll(){
+    return this.http.get(this.url + 'all');
+  }
 }
