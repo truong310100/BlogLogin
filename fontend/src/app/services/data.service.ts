@@ -17,4 +17,7 @@ export class DataService {
   getAll(){
     return this.http.get(this.url + 'all');
   }
+  getArticleByIdAuthor(id : any){
+    return this.http.get(this.url + 'getbyidauthor/' + id);
+  }
 }
