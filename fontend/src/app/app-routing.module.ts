@@ -9,13 +9,14 @@ import { AuthorComponent } from './author/author.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
   {path: 'home', component:HomeComponent},
   {path: 'article/:id', component:DetailComponent},
-  {path: 'create', component:CreatearticleComponent},
+  {path: 'create', canActivate:[ AuthGuard ], component:CreatearticleComponent},
   {path: 'about', component:AboutComponent},
 
   {path: 'privacy', component:PrivacyComponent},
