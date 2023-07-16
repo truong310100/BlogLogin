@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Action } from 'rxjs/internal/scheduler/Action';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-detail',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+  
+  id: any;
+  article: any;
 
-  constructor() { }
+  constructor(private act: ActivatedRoute, private data: DataService) { }
 
   ngOnInit(): void {
+  
+    this.id = this.act.snapshot.paramMap.get('id')
+
+    this.data.getArticleById(this.id)
+      .subscribe(
+        res=>{
+          this.article = res;
+        }
+      )
   }
 
 }
